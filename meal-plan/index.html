@@ -5,125 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🥗 Piano Alimentare Settimanale</title>
     <style>
-        :root {
-            --primary: #10b981;
-            --bg: #f8fafc;
-            --card: #ffffff;
-            --text: #1e293b;
-            --text-light: #64748b;
-        }
+        :root { --primary: #10b981; --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --text-light: #64748b; }
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-        }
-        .header {
-            background: linear-gradient(135deg, var(--primary) 0%, #059669 100%);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
+        .header { background: linear-gradient(135deg, var(--primary) 0%, #059669 100%); color: white; padding: 30px 20px; text-align: center; }
         .header h1 { font-size: 1.8rem; margin-bottom: 10px; }
         .header p { opacity: 0.9; }
         .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .goals {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 25px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+        .goals { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .goals h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; }
         .goals ul { list-style: none; }
         .goals li { padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
         .goals li:last-child { border-bottom: none; }
-        .day {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
-        .day h2 {
-            color: var(--primary);
-            margin-bottom: 15px;
-            font-size: 1.3rem;
-            border-bottom: 2px solid #e2e8f0;
-            padding-bottom: 10px;
-        }
-        .meal {
-            margin-bottom: 15px;
-            padding: 15px;
-            background: #f1f5f9;
-            border-radius: 8px;
-        }
-        .meal-title {
-            font-weight: 600;
-            color: var(--primary);
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .meal-kcal {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
-        .macros {
-            display: flex;
-            gap: 15px;
-            margin: 10px 0;
-            flex-wrap: wrap;
-        }
-        .macro {
-            font-size: 0.8rem;
-            color: var(--text-light);
-            background: white;
-            padding: 4px 10px;
-            border-radius: 20px;
-        }
-        .ingredients {
-            font-size: 0.9rem;
-            color: var(--text-light);
-            margin: 8px 0;
-        }
-        .recipe {
-            font-size: 0.9rem;
-            font-style: italic;
-            color: var(--text-light);
-            background: white;
-            padding: 8px;
-            border-radius: 4px;
-            margin-top: 8px;
-        }
-        .total {
-            text-align: center;
-            font-weight: 600;
-            color: var(--primary);
-            margin-top: 10px;
-        }
-        .shopping {
-            background: var(--card);
-            border-radius: 12px;
-            padding: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-        }
+        .day { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        .day h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
+        .meal { margin-bottom: 15px; padding: 15px; background: #f1f5f9; border-radius: 8px; }
+        .meal-title { font-weight: 600; color: var(--primary); margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+        .meal-kcal { font-size: 0.85rem; color: var(--text-light); }
+        .macros { display: flex; gap: 15px; margin: 10px 0; flex-wrap: wrap; }
+        .macro { font-size: 0.8rem; color: var(--text-light); background: white; padding: 4px 10px; border-radius: 20px; }
+        .ingredients { font-size: 0.9rem; color: var(--text-light); margin: 8px 0; }
+        .recipe { font-size: 0.9rem; font-style: italic; color: var(--text-light); background: white; padding: 8px; border-radius: 4px; margin-top: 8px; }
+        .total { text-align: center; font-weight: 600; color: var(--primary); margin-top: 10px; }
+        .shopping { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
         .shopping h2 { color: var(--primary); margin-bottom: 15px; }
         .shopping ul { list-style: none; }
         .shopping li { padding: 6px 0; border-bottom: 1px solid #e2e8f0; }
-        .last-updated {
-            text-align: center;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-top: 30px;
-        }
-        @media (max-width: 600px) {
-            .header h1 { font-size: 1.5rem; }
-            .container { padding: 15px; }
-            .meal { padding: 12px; }
-        }
+        .last-updated { text-align: center; color: var(--text-light); font-size: 0.85rem; margin-top: 30px; }
+        @media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .container { padding: 15px; } .meal { padding: 12px; } }
     </style>
 </head>
 <body>
@@ -131,35 +40,31 @@
         <h1>🥗 Piano Alimentare Settimanale</h1>
         <p>Per una perdita di peso sana e sostenibile</p>
     </div>
-    
     <div class="container">
         <div class="goals">
             <h2>🎯 Obiettivi</h2>
             <ul>
-                <li><strong>Calorie giornaliere:</strong> ~1600 kcal (deficit moderato)</li>
-                <li><strong>Perdita peso:</strong> 0.5-1kg a settimana</li>
-                <li><strong>Proteine:</strong> 80-100g per mantenimento muscolare</li>
+                <li><strong>Calorie:</strong> ~1600 kcal/giorno</li>
+                <li><strong>Proteine:</strong> 80-100g (mantenimento muscolare)</li>
                 <li><strong>Acqua:</strong> 2-3L al giorno</li>
-                <li><strong>Nota postpartum:</strong> Ricco di ferro e calcio, meno sale</li>
+                <li><strong>Nota:</strong> Ricco di ferro e calcio, postpartum-safe</li>
             </ul>
         </div>
         
         <div class="day">
-            <h2>📅 Mercoledì</h2>
-            
+            <h2>📅 Wednesday</h2>
             <div class="meal">
                 <div class="meal-title">☀️ Colazione</div>
                 <div class="meal-kcal">200 kcal</div>
                 <strong>Yogurt greco con frutta</strong>
                 <div class="macros">
-                    <span class="macro">Proteine 15g</span>
-                    <span class="macro">Carboidrati 20g</span>
+                    <span class="macro">Prot 15g</span>
+                    <span class="macro">Carb 20g</span>
                     <span class="macro">Grassi 5g</span>
                 </div>
                 <div class="ingredients">Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci</div>
                 <div class="recipe">Mescola yogurt con frutta e noci.</div>
             </div>
-            
             <div class="meal">
                 <div class="meal-title">🍎 Spuntino Mattina</div>
                 <div class="meal-kcal">80 kcal</div>
@@ -167,20 +72,18 @@
                 <div class="ingredients">Ingredienti: 1 mela o pera</div>
                 <div class="recipe">Mangiare fresca.</div>
             </div>
-            
             <div class="meal">
                 <div class="meal-title">🍽️ Pranzo</div>
                 <div class="meal-kcal">400 kcal</div>
                 <strong>Pasta integrale con pomodoro e basilico</strong>
                 <div class="macros">
-                    <span class="macro">Proteine 12g</span>
-                    <span class="macro">Carboidrati 60g</span>
+                    <span class="macro">Prot 12g</span>
+                    <span class="macro">Carb 60g</span>
                     <span class="macro">Grassi 8g</span>
                 </div>
                 <div class="ingredients">Ingredienti: 70g pasta integrale, 150g pomodori, basilico, 1 cucchiaino olio</div>
                 <div class="recipe">Cuoci pasta. Soffriggi pomodori 5 min. Unisci pasta e condisci con olio.</div>
             </div>
-            
             <div class="meal">
                 <div class="meal-title">🍎 Spuntino Pomeriggio</div>
                 <div class="meal-kcal">80 kcal</div>
@@ -188,60 +91,396 @@
                 <div class="ingredients">Ingredienti: 1 mela o pera</div>
                 <div class="recipe">Mangiare fresca.</div>
             </div>
-            
             <div class="meal">
                 <div class="meal-title">🌙 Cena</div>
                 <div class="meal-kcal">400 kcal</div>
                 <strong>Salmone al forno con verdure</strong>
                 <div class="macros">
-                    <span class="macro">Proteine 35g</span>
-                    <span class="macro">Carboidrati 15g</span>
+                    <span class="macro">Prot 35g</span>
+                    <span class="macro">Carb 15g</span>
                     <span class="macro">Grassi 25g</span>
                 </div>
                 <div class="ingredients">Ingredienti: 150g salmone, 200g zucchine, 1 patata piccola</div>
                 <div class="recipe">Inforna salmone e verdure 20 min a 200°C.</div>
             </div>
-            
-            <div class="total">Total giornaliero: ~1600 kcal</div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Thursday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">250 kcal</div>
+                <strong>Toast integrale con avocado</strong>
+                <div class="macros">
+                    <span class="macro">Prot 8g</span>
+                    <span class="macro">Carb 25g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 1 fetta pane integrale, 1/2 avocado, 1 cucchiaino olio</div>
+                <div class="recipe">Spalma avocado sul pane.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Frutta secca</strong>
+                <div class="ingredients">Ingredienti: 10g mandorle o noci</div>
+                <div class="recipe">Mangiare a temperatura ambiente.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">450 kcal</div>
+                <strong>Insalata di pollo e quinoa</strong>
+                <div class="macros">
+                    <span class="macro">Prot 35g</span>
+                    <span class="macro">Carb 45g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 120g petto pollo, 50g quinoa, lattuga, pomodorini, 1 cucchiaino olio</div>
+                <div class="recipe">Cuoci quinoa. Griglia pollo. Mescola tutto con condimento.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Frutta secca</strong>
+                <div class="ingredients">Ingredienti: 10g mandorle o noci</div>
+                <div class="recipe">Mangiare a temperatura ambiente.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">350 kcal</div>
+                <strong>Petto di pollo con verdure grigliate</strong>
+                <div class="macros">
+                    <span class="macro">Prot 40g</span>
+                    <span class="macro">Carb 10g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g pollo, zucchine, melanzane, 1 cucchiaino olio</div>
+                <div class="recipe">Griglia pollo e verdure. Condisci con olio.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Friday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">220 kcal</div>
+                <strong>Porridge di avena</strong>
+                <div class="macros">
+                    <span class="macro">Prot 8g</span>
+                    <span class="macro">Carb 35g</span>
+                    <span class="macro">Grassi 4g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 30g avena, 200ml latte, mezza mela</div>
+                <div class="recipe">Cuoci avena con latte. Aggiungi mela a cubetti.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Parmigiano</strong>
+                <div class="ingredients">Ingredienti: 20g parmigiano</div>
+                <div class="recipe">Mangiare con frutta.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">420 kcal</div>
+                <strong>Risotto alla zucca (senza burro)</strong>
+                <div class="macros">
+                    <span class="macro">Prot 10g</span>
+                    <span class="macro">Carb 70g</span>
+                    <span class="macro">Grassi 6g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 60g riso, 200g zucca, 1/2 cipolla, 1 cucchiaino olio</div>
+                <div class="recipe">Soffriggi zucca. Tosta riso. Manteca con zucca e poco olio.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Parmigiano</strong>
+                <div class="ingredients">Ingredienti: 20g parmigiano</div>
+                <div class="recipe">Mangiare con frutta.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">320 kcal</div>
+                <strong>Frittata di spinaci</strong>
+                <div class="macros">
+                    <span class="macro">Prot 20g</span>
+                    <span class="macro">Carb 5g</span>
+                    <span class="macro">Grassi 25g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 2 uova, 200g spinaci, parmigiano</div>
+                <div class="recipe">Soffriggi spinaci. Aggiungi uova sbattute. Cuoci fino a doratura.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Saturday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">200 kcal</div>
+                <strong>Yogurt greco con frutta</strong>
+                <div class="macros">
+                    <span class="macro">Prot 15g</span>
+                    <span class="macro">Carb 20g</span>
+                    <span class="macro">Grassi 5g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci</div>
+                <div class="recipe">Mescola yogurt con frutta e noci.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">80 kcal</div>
+                <strong>Frutta fresca</strong>
+                <div class="ingredients">Ingredienti: 1 mela o pera</div>
+                <div class="recipe">Mangiare fresca.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">380 kcal</div>
+                <strong>Wrap di tacchino e verdure</strong>
+                <div class="macros">
+                    <span class="macro">Prot 25g</span>
+                    <span class="macro">Carb 40g</span>
+                    <span class="macro">Grassi 10g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 1 piadina integrale, 60g tacchino, lattuga, 1 cucchiaino olio</div>
+                <div class="recipe">Scalda piadina. Riempi con tacchino e verdure.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">80 kcal</div>
+                <strong>Frutta fresca</strong>
+                <div class="ingredients">Ingredienti: 1 mela o pera</div>
+                <div class="recipe">Mangiare fresca.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">300 kcal</div>
+                <strong>Pesce spada con insalata</strong>
+                <div class="macros">
+                    <span class="macro">Prot 35g</span>
+                    <span class="macro">Carb 5g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g pesce spada, insalata mista, limone, 1 cucchiaino olio</div>
+                <div class="recipe">Griglia pesce 3 min per lato. Servi con insalata.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Sunday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">250 kcal</div>
+                <strong>Toast integrale con avocado</strong>
+                <div class="macros">
+                    <span class="macro">Prot 8g</span>
+                    <span class="macro">Carb 25g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 1 fetta pane integrale, 1/2 avocado, 1 cucchiaino olio</div>
+                <div class="recipe">Spalma avocado sul pane.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Frutta secca</strong>
+                <div class="ingredients">Ingredienti: 10g mandorle o noci</div>
+                <div class="recipe">Mangiare a temperatura ambiente.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">400 kcal</div>
+                <strong>Pasta integrale con pomodoro e basilico</strong>
+                <div class="macros">
+                    <span class="macro">Prot 12g</span>
+                    <span class="macro">Carb 60g</span>
+                    <span class="macro">Grassi 8g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 70g pasta integrale, 150g pomodori, basilico, 1 cucchiaino olio</div>
+                <div class="recipe">Cuoci pasta. Soffriggi pomodori 5 min. Unisci pasta e condisci con olio.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Frutta secca</strong>
+                <div class="ingredients">Ingredienti: 10g mandorle o noci</div>
+                <div class="recipe">Mangiare a temperatura ambiente.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">400 kcal</div>
+                <strong>Salmone al forno con verdure</strong>
+                <div class="macros">
+                    <span class="macro">Prot 35g</span>
+                    <span class="macro">Carb 15g</span>
+                    <span class="macro">Grassi 25g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g salmone, 200g zucchine, 1 patata piccola</div>
+                <div class="recipe">Inforna salmone e verdure 20 min a 200°C.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Monday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">220 kcal</div>
+                <strong>Porridge di avena</strong>
+                <div class="macros">
+                    <span class="macro">Prot 8g</span>
+                    <span class="macro">Carb 35g</span>
+                    <span class="macro">Grassi 4g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 30g avena, 200ml latte, mezza mela</div>
+                <div class="recipe">Cuoci avena con latte. Aggiungi mela a cubetti.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Parmigiano</strong>
+                <div class="ingredients">Ingredienti: 20g parmigiano</div>
+                <div class="recipe">Mangiare con frutta.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">450 kcal</div>
+                <strong>Insalata di pollo e quinoa</strong>
+                <div class="macros">
+                    <span class="macro">Prot 35g</span>
+                    <span class="macro">Carb 45g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 120g petto pollo, 50g quinoa, lattuga, pomodorini, 1 cucchiaino olio</div>
+                <div class="recipe">Cuoci quinoa. Griglia pollo. Mescola tutto con condimento.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">100 kcal</div>
+                <strong>Parmigiano</strong>
+                <div class="ingredients">Ingredienti: 20g parmigiano</div>
+                <div class="recipe">Mangiare con frutta.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">350 kcal</div>
+                <strong>Petto di pollo con verdure grigliate</strong>
+                <div class="macros">
+                    <span class="macro">Prot 40g</span>
+                    <span class="macro">Carb 10g</span>
+                    <span class="macro">Grassi 12g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g pollo, zucchine, melanzane, 1 cucchiaino olio</div>
+                <div class="recipe">Griglia pollo e verdure. Condisci con olio.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
+        </div>
+        
+        <div class="day">
+            <h2>📅 Tuesday</h2>
+            <div class="meal">
+                <div class="meal-title">☀️ Colazione</div>
+                <div class="meal-kcal">200 kcal</div>
+                <strong>Yogurt greco con frutta</strong>
+                <div class="macros">
+                    <span class="macro">Prot 15g</span>
+                    <span class="macro">Carb 20g</span>
+                    <span class="macro">Grassi 5g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci</div>
+                <div class="recipe">Mescola yogurt con frutta e noci.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Mattina</div>
+                <div class="meal-kcal">80 kcal</div>
+                <strong>Frutta fresca</strong>
+                <div class="ingredients">Ingredienti: 1 mela o pera</div>
+                <div class="recipe">Mangiare fresca.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍽️ Pranzo</div>
+                <div class="meal-kcal">420 kcal</div>
+                <strong>Risotto alla zucca (senza burro)</strong>
+                <div class="macros">
+                    <span class="macro">Prot 10g</span>
+                    <span class="macro">Carb 70g</span>
+                    <span class="macro">Grassi 6g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 60g riso, 200g zucca, 1/2 cipolla, 1 cucchiaino olio</div>
+                <div class="recipe">Soffriggi zucca. Tosta riso. Manteca con zucca e poco olio.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🍎 Spuntino Pomeriggio</div>
+                <div class="meal-kcal">80 kcal</div>
+                <strong>Frutta fresca</strong>
+                <div class="ingredients">Ingredienti: 1 mela o pera</div>
+                <div class="recipe">Mangiare fresca.</div>
+            </div>
+            <div class="meal">
+                <div class="meal-title">🌙 Cena</div>
+                <div class="meal-kcal">320 kcal</div>
+                <strong>Frittata di spinaci</strong>
+                <div class="macros">
+                    <span class="macro">Prot 20g</span>
+                    <span class="macro">Carb 5g</span>
+                    <span class="macro">Grassi 25g</span>
+                </div>
+                <div class="ingredients">Ingredienti: 2 uova, 200g spinaci, parmigiano</div>
+                <div class="recipe">Soffriggi spinaci. Aggiungi uova sbattute. Cuoci fino a doratura.</div>
+            </div>
+            <div class="total">Totale giornaliero: ~1600 kcal</div>
         </div>
         
         <div class="shopping">
             <h2>🛒 Lista della Spesa</h2>
             <ul>
-                <li>200g salmone</li>
-                <li>150g pollo</li>
-                <li>200g spinaci</li>
-                <li>200g zucca</li>
-                <li>200g zucchine</li>
-                <li>150g yogurt greco</li>
-                <li>1 mela o pera</li>
-                <li>1/2 avocado</li>
-                <li>1 fetta pane integrale</li>
-                <li>120g petto pollo</li>
-                <li>150g pomodori</li>
-                <li>70g pasta integrale</li>
-                <li>70g quinoa</li>
-                <li>1 cucchiaino olio</li>
-                <li>10g noci</li>
-                <li>10g mandorle o noci</li>
-                <li>1/2 cipolla</li>
-                <li>100g parmigiano</li>
-                <li>20g pecorino</li>
-                <li>20g pesto</li>
+                    <li>12x 1 cucchiaino olio</li>
+                <li>2x 1 fetta pane integrale</li>
+                <li>3x 1 mela o pera</li>
+                <li>2x 1 patata piccola</li>
+                <li>1 piadina integrale</li>
+                <li>2x 1/2 avocado</li>
+                <li>2x 1/2 cipolla</li>
+                <li>2x 10g mandorle o noci</li>
+                <li>3x 10g noci</li>
+                <li>2x 120g petto pollo</li>
+                <li>3x 150g frutta di stagione</li>
+                <li>150g pesce spada</li>
+                <li>2x 150g pollo</li>
+                <li>2x 150g pomodori</li>
+                <li>2x 150g salmone</li>
+                <li>3x 150g yogurt greco</li>
+                <li>2x 2 uova</li>
+                <li>2x 200g spinaci</li>
+                <li>2x 200g zucca</li>
+                <li>2x 200g zucchine</li>
+                <li>2x 200ml latte</li>
+                <li>2x 20g parmigiano</li>
+                <li>2x 30g avena</li>
+                <li>2x 50g quinoa</li>
+                <li>2x 60g riso</li>
+                <li>60g tacchino</li>
+                <li>2x 70g pasta integrale</li>
+                <li>2x basilico</li>
+                <li>insalata mista</li>
+                <li>3x lattuga</li>
+                <li>limone</li>
+                <li>2x melanzane</li>
+                <li>2x mezza mela</li>
+                <li>2x parmigiano</li>
+                <li>2x pomodorini</li>
+                <li>2x zucchine</li>
+
             </ul>
         </div>
-        
         <div class="last-updated">
-            Aggiornato il <span id="updated-date"></span>
+            Aggiornato il 23 September 2026
         </div>
     </div>
-    
-    <script>
-        document.getElementById('updated-date').textContent = new Date().toLocaleDateString('it-IT', { 
-            day: 'numeric', 
-            month: 'long', 
-            year: 'numeric' 
-        });
-    </script>
 </body>
 </html>
