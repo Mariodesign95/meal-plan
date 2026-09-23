@@ -68,7 +68,7 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 <div class="shopping">
 <button class="copy-btn shop-copy" onclick="copyList(this)">Copy list</button>
 <ul>
-<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g salmon</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g frozen berries</li><li>150g green beans</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g small pasta</li><li>60g basmati rice</li><li>60g mozzarella</li><li>2 &times; basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>lemon</li><li>mixed salad</li><li>olives</li><li>Still water (2&ndash;3L per day)</li>
+<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g chicken breast (already at home)</li><li>150g frozen berries</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 peppers (already at home)</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g small pasta</li><li>60g basmati rice</li><li>60g mozzarella</li><li>2 &times; basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>mixed salad</li><li>olives</li><li>Still water (2&ndash;3L per day)</li>
 </ul>
 </div>
 </details>
@@ -115,8 +115,8 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
                     <span class="meal-label">Dinner</span>
                     <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
                 </div>
-                <div class="meal-name">Baked salmon with potatoes <span class="kcal">460 kcal</span></div>
-                <div class="recipe"><span class="rlabel">Ingredients</span> 120g salmon, 1 small potato, 150g green beans, 1 tsp olive oil, lemon<br><span class="rlabel">How</span> Boil potato 20 min. Bake salmon and beans at 190C 15 min.</div>
+                <div class="meal-name">Chicken with roasted peppers <span class="kcal">460 kcal</span></div>
+                <div class="recipe"><span class="rlabel">Ingredients</span> 150g chicken breast (already at home), 2 peppers (already at home), 1 small potato, 1 tsp olive oil<br><span class="rlabel">How</span> Roast peppers and potato at 200C for 25 min. Grill chicken 6 min per side.</div>
             </div>
         </div>
         <div class="day">
@@ -269,7 +269,7 @@ function copyMeal(btn) {
     setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
-var shoppingText = '2x 1 apple\n2x 1 banana\n3x 1 carrot\n1 celery stick\n1 clementine\n1 courgette\n1 croissant\n1 onion\n1 orange\n2x 1 potato\n2x 1 slice whole wheat bread\n1 small potato\n1 tin tuna\n1 tomato\n2x 1 tsp honey\n5x 1 tsp olive oil\n1 whole wheat pizza base\n4x 100g Greek yogurt\n100g berries\n100g chicken breast\n100g green beans\n100g passata\n2x 10g almonds\n120g chicken breast\n120g salmon\n120g turkey mince\n150g cannellini beans\n150g frozen berries\n150g green beans\n150g passata\n1L chicken stock\n1L vegetable stock\n2x 2 eggs\n2x 2 scoops of gelato or ice cream\n30g breadcrumbs\n40g feta\n40g oats\n50g small pasta\n60g basmati rice\n60g mozzarella\n2x basil\n2x cherry tomatoes\nchives\nhalf cucumber\nhalf tomato\nlemon\nmixed salad\nolives\nStill water 2-3L per day';
+var shoppingText = '2x 1 apple\n2x 1 banana\n3x 1 carrot\n1 celery stick\n1 clementine\n1 courgette\n1 croissant\n1 onion\n1 orange\n2x 1 potato\n2x 1 slice whole wheat bread\n1 small potato\n1 tin tuna\n1 tomato\n2x 1 tsp honey\n5x 1 tsp olive oil\n1 whole wheat pizza base\n4x 100g Greek yogurt\n100g berries\n100g chicken breast\n100g green beans\n100g passata\n2x 10g almonds\n120g chicken breast\n120g turkey mince\n150g cannellini beans\n150g chicken breast (already at home)\n150g frozen berries\n150g passata\n1L chicken stock\n1L vegetable stock\n2x 2 eggs\n2 peppers (already at home)\n2x 2 scoops of gelato or ice cream\n30g breadcrumbs\n40g feta\n40g oats\n50g small pasta\n60g basmati rice\n60g mozzarella\n2x basil\n2x cherry tomatoes\nchives\nhalf cucumber\nhalf tomato\nmixed salad\nolives\nStill water 2-3L per day';
 function copyList(btn) {
   navigator.clipboard.writeText(shoppingText).then(function() {
     btn.textContent = 'Copied';
