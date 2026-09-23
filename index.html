@@ -14,6 +14,14 @@ body { font-family:'Segoe UI', system-ui, sans-serif; background:linear-gradient
 .badges { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-top:12px; }
 .badge { font-size:0.75rem; color:#6b6152; background:#fff; border:1px solid #e2dccc; border-radius:20px; padding:4px 12px; }
 .week { margin:26px 0 0; }
+.shop-drop { margin:16px auto 0; max-width:520px; }
+.shop-drop summary { cursor:pointer; list-style:none; background:#fff; border:1px solid #e2dccc; border-radius:12px; padding:14px 20px; font-weight:600; color:#4a4238; box-shadow:0 1px 4px rgba(60,50,30,0.07); display:flex; justify-content:space-between; align-items:center; }
+.shop-drop summary::-webkit-details-marker { display:none; }
+.shop-drop .chev { transition:transform 0.2s; color:#a3988a; }
+.shop-drop[open] .chev { transform:rotate(90deg); }
+.shop-drop[open] summary { border-radius:12px 12px 0 0; }
+.shop-drop .shopping { border:1px solid #e2dccc; border-top:none; border-radius:0 0 12px 12px; position:relative; }
+.shop-copy { position:absolute; top:14px; right:16px; }
 .day { background:#fff; border-radius:14px; box-shadow:0 1px 4px rgba(60,50,30,0.07); padding:18px 20px 6px; margin-bottom:14px; border-left:3px solid #c9b992; }
 .day-head { display:flex; align-items:baseline; gap:10px; padding-bottom:10px; border-bottom:1px solid #f0ebe0; margin-bottom:4px; }
 .day-head h2 { font-family:Georgia,serif; font-size:1.2rem; color:#5a5044; font-weight:normal; }
@@ -52,9 +60,19 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 <p class="msg">Forza Raffaella! Every day is one step closer. Mario is with you. &hearts;</p>
 <div class="badges">
 <span class="badge">~1,500&ndash;1,650 kcal / day</span>
+<span class="badge">Water 2&ndash;3L / day</span>
 <span class="badge">Gelato Sat &amp; Sun</span>
 <span class="badge">Pizza once a week</span>
 </div>
+<details class="shop-drop">
+<summary>&#128722; Shopping List <span class="chev">&rsaquo;</span></summary>
+<div class="shopping">
+<button class="copy-btn shop-copy" onclick="copyList(this)">Copy list</button>
+<ul>
+<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g salmon</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g frozen berries</li><li>150g green beans</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g quinoa</li><li>50g small pasta</li><li>60g mozzarella</li><li>basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>lemon</li><li>mixed salad</li><li>2 &times; olives</li><li>rocket</li><li>Still water (2&ndash;3L per day)</li>
+</ul>
+</div>
+</details>
 </div>
 <div class="week">
 
@@ -235,13 +253,6 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
             </div>
         </div>
 </div>
-<h2 class="shop-title">Shopping List</h2>
-<p class="shop-sub">Everything you need for the week</p>
-<div class="shopping">
-<ul>
-<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g salmon</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g frozen berries</li><li>150g green beans</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g quinoa</li><li>50g small pasta</li><li>60g mozzarella</li><li>basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>lemon</li><li>mixed salad</li><li>2 &times; olives</li><li>rocket</li>
-</ul>
-</div>
 <div class="weekend">
 <h3>&#127846; Weekend Rewards</h3>
 <p>Gelato on Saturday <b>and</b> Sunday &mdash; pizza night on Saturday. Well done this week.</p>
@@ -257,6 +268,14 @@ function copyMeal(btn) {
     btn.textContent = 'Copied';
     btn.classList.add('copied');
     setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+var shoppingText = '2x 1 apple\n2x 1 banana\n3x 1 carrot\n1 celery stick\n1 clementine\n1 courgette\n1 croissant\n1 onion\n1 orange\n2x 1 potato\n2x 1 slice whole wheat bread\n1 small potato\n1 tin tuna\n1 tomato\n2x 1 tsp honey\n5x 1 tsp olive oil\n1 whole wheat pizza base\n4x 100g Greek yogurt\n100g berries\n100g chicken breast\n100g green beans\n100g passata\n2x 10g almonds\n120g chicken breast\n120g salmon\n120g turkey mince\n150g cannellini beans\n150g frozen berries\n150g green beans\n150g passata\n1L chicken stock\n1L vegetable stock\n2x 2 eggs\n2x 2 scoops of gelato or ice cream\n30g breadcrumbs\n40g feta\n40g oats\n50g quinoa\n50g small pasta\n60g mozzarella\nbasil\n2x cherry tomatoes\nchives\nhalf cucumber\nhalf tomato\nlemon\nmixed salad\n2x olives\nrocket\nStill water 2-3L per day';
+function copyList(btn) {
+  navigator.clipboard.writeText(shoppingText).then(function() {
+    btn.textContent = 'Copied';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'Copy list'; btn.classList.remove('copied'); }, 2000);
   });
 }
 </script>
