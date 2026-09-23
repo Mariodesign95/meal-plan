@@ -1,138 +1,221 @@
-# 🥗 Meal Plan Settimanale - 23 September 2026
+# 🥗 Piano Alimentare Settimanale
 
-> Nota: Questo piano è una traccia. Adattalo alle tue esigenze. Colazione e spuntini non inclusi.
+**Per:** 23 September 2026
 
-## Wednesday 23/9
+## 🎯 Obiettivi
+- **Calorie giornaliere:** ~1600 kcal (deficit moderato)
+- **Perdita peso:** 0.5-1kg a settimana
+- **Proteine:** 80-100g per mantenimento muscolare
+- **Acqua:** 2-3L al giorno
+- **Nota postpartum:** Ricco di ferro e calcio, meno sale
 
-### 🌤️ Pranzo: Pasta al Pesto Genovese
-- **Kcal:** 650 | Proteine: 20g | Carb: 75g | Grassi: 25g
-- **Ingredienti:** 100g pasta, 20g pesto, 10g parmigiano, 1 cucchiaio olio
-- **Preparazione:** Bolli la pasta in acqua salata; Sciogli pesto con acqua di cottura; Mescola e spolvera formaggio
+## 📅 Pianificazione Settimanale
 
-### 🌙 Cena: Salmone al Forno
-- **Kcal:** 600 | Proteine: 35g | Carb: 20g | Grassi: 40g
-- **Ingredienti:** 200g salmone, 200g zucchine, 1 patata, olio
-- **Preparazione:** Taglia verdura a rondelle; Adagia salmone sopra verdure; Inforna 20 min a 200°C
+## Wednesday
+---
 
-## Thursday 24/9
+**Colazione** (200 kcal): Yogurt greco con frutta
+- Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci
 
-### 🌤️ Pranzo: Petto di Pollo al Limone
-- **Kcal:** 580 | Proteine: 40g | Carb: 55g | Grassi: 12g
-- **Ingredienti:** 150g pollo, 60g riso basmati, 1 limone, 1 cucchiaio olio, erba cipollina
-- **Preparazione:** Soffriggi pollo con olio e limone; Cuoci riso a parte; Manteca riso e unisci pollo
+**Spuntino mattina** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
 
-### 🌙 Cena: Frittata di Spinaci
-- **Kcal:** 450 | Proteine: 25g | Carb: 5g | Grassi: 35g
-- **Ingredienti:** 3 uova, 200g spinaci, parmigiano, olio
-- **Preparazione:** Soffriggi spinaci in padella; Aggiungi uova sbattute con formaggio; Cuoce fino a doratura
+**Pranzo** (400 kcal): Pasta integrale con pomodoro e basilico
+- Macros: Proteine 12g | Carb 60g | Grassi 8g
+- Ingredienti: 70g pasta integrale, 150g pomodori, basilico, 1 cucchiaino olio
+- Preparazione: Cuoci pasta. Soffriggi pomodori 5 min. Unisci pasta e condisci con olio.
 
-## Friday 25/9
+**Spuntino pomeriggio** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
 
-### 🌤️ Pranzo: Risotto alla Zucca
-- **Kcal:** 700 | Proteine: 15g | Carb: 85g | Grassi: 18g
-- **Ingredienti:** 80g riso, 200g zucca, 1/2 cipolla, 1 cucchiaio olio, parmigiano
-- **Preparazione:** Tritura e soffriggi la zucca; Tosta il riso in padella; Manteca con zucca e parmigiano
+**Cena** (400 kcal): Salmone al forno con verdure
+- Macros: Proteine 35g | Carb 15g | Grassi 25g
+- Ingredienti: 150g salmone, 200g zucchine, 1 patata piccola
+- Preparazione: Inforna salmone e verdure 20 min a 200°C.
 
-### 🌙 Cena: Pasta Aglio Olio
-- **Kcal:** 550 | Proteine: 15g | Carb: 80g | Grassi: 15g
-- **Ingredienti:** 80g spaghetti, 3 spicchi aglio, peperoncino, olio
-- **Preparazione:** Soffriggi aglio e peperoncino; Cuoci spaghetti in acqua salata; Manteca pasta in padella
+**Totale del giorno:** ~1600 kcal
 
-## Saturday 26/9
+## Thursday
+---
 
-### 🌤️ Pranzo: Insalata di Tonno e Quinoa
-- **Kcal:** 520 | Proteine: 35g | Carb: 45g | Grassi: 15g
-- **Ingredienti:** 70g quinoa, 1 scatoletta tonno, 1 pomodoro, lattuga, olio
-- **Preparazione:** Cuoci quinoa come indicato; Scola tonno e rimuovi l'olio; Mescola tutto con verdure fresche
+**Colazione** (250 kcal): Toast integrale con avocado
+- Ingredienti: 1 fetta pane integrale, 1/2 avocado, 1 cucchiaino olio
 
-### 🌙 Cena: Hamburger di Manzo
-- **Kcal:** 580 | Proteine: 40g | Carb: 10g | Grassi: 35g
-- **Ingredienti:** 150g carne macinata, insalata, pomodoro, patate
-- **Preparazione:** Forma hamburger con la carne; Cuoci piastra 5 min per lato; Servi con verdure crude
+**Spuntino mattina** (100 kcal): Frutta secca
+- Ingredienti: 10g mandorle o noci
 
-## Sunday 27/9
+**Pranzo** (450 kcal): Insalata di pollo e quinoa
+- Macros: Proteine 35g | Carb 45g | Grassi 12g
+- Ingredienti: 120g petto pollo, 50g quinoa, lattuga, pomodorini, 1 cucchiaino olio
+- Preparazione: Cuoci quinoa. Griglia pollo. Mescola tutto con condimento.
 
-### 🌤️ Pranzo: Pizza Casalinga
-- **Kcal:** 650 | Proteine: 25g | Carb: 70g | Grassi: 20g
-- **Ingredienti:** 200g impasto, 1 pomodoro, 100g mozzarella, origano
-- **Preparazione:** Stendi l'impasto su teglia; Condisci con pomodoro e mozzarella; Cuoci a 220°C per 15 minuti
+**Spuntino pomeriggio** (100 kcal): Frutta secca
+- Ingredienti: 10g mandorle o noci
 
-### 🌙 Cena: Legumi e Verdure
-- **Kcal:** 480 | Proteine: 20g | Carb: 45g | Grassi: 10g
-- **Ingredienti:** 200g ceci, pomodori, cipolla, olio
-- **Preparazione:** Soffriggi cipolla e pomodoro; Aggiungi ceci e spezie; Cuoci 10 minuti a fuoco lento
+**Cena** (350 kcal): Petto di pollo con verdure grigliate
+- Macros: Proteine 40g | Carb 10g | Grassi 12g
+- Ingredienti: 150g pollo, zucchine, melanzane, 1 cucchiaino olio
+- Preparazione: Griglia pollo e verdure. Condisci con olio.
 
-## Monday 28/9
+**Totale del giorno:** ~1600 kcal
 
-### 🌤️ Pranzo: Insalata di Riso e Prosciutto
-- **Kcal:** 550 | Proteine: 20g | Carb: 60g | Grassi: 15g
-- **Ingredienti:** 80g riso, 60g prosciutto cotto, pomodorini, mais, olio
-- **Preparazione:** Cuoci riso e fai raffreddare; Taglia prosciutto e pomodorini; Mescola con mais e condimento
+## Friday
+---
 
-### 🌙 Cena: Pesce Spada alla Griglia
-- **Kcal:** 450 | Proteine: 40g | Carb: 0g | Grassi: 25g
-- **Ingredienti:** 200g pesce spada, limone, prezzemolo, olio
-- **Preparazione:** Griglia pesce 3 min per lato; Condisci con limone e prezzemolo; Servi caldo o tiepido
+**Colazione** (220 kcal): Porridge di avena
+- Ingredienti: 30g avena, 200ml latte, mezza mela
 
-## Tuesday 29/9
+**Spuntino mattina** (100 kcal): Parmigiano
+- Ingredienti: 20g parmigiano
 
-### 🌤️ Pranzo: Tagliata di Manzo
-- **Kcal:** 600 | Proteine: 45g | Carb: 2g | Grassi: 45g
-- **Ingredienti:** 200g manzo, rucola, parmigiano, olio, succo limone
-- **Preparazione:** Rosola carne 2 min per lato; Lascia riposare 5 minuti; Affetta e servi con rucola
+**Pranzo** (420 kcal): Risotto alla zucca (senza burro)
+- Macros: Proteine 10g | Carb 70g | Grassi 6g
+- Ingredienti: 60g riso, 200g zucca, 1/2 cipolla, 1 cucchiaino olio
+- Preparazione: Soffriggi zucca. Tosta riso. Manteca con zucca e poco olio.
 
-### 🌙 Cena: Omelette di Parmigiano
-- **Kcal:** 500 | Proteine: 35g | Carb: 2g | Grassi: 40g
-- **Ingredienti:** 4 uova, 50g parmigiano, olio, erba aromatica
-- **Preparazione:** Sbatti uova con formaggio grattugiato; Cuoci in padella antiaderente; Arrotola e servi con erbe
+**Spuntino pomeriggio** (100 kcal): Parmigiano
+- Ingredienti: 20g parmigiano
+
+**Cena** (320 kcal): Frittata di spinaci
+- Macros: Proteine 20g | Carb 5g | Grassi 25g
+- Ingredienti: 2 uova, 200g spinaci, parmigiano
+- Preparazione: Soffriggi spinaci. Aggiungi uova sbattute. Cuoci fino a doratura.
+
+**Totale del giorno:** ~1600 kcal
+
+## Saturday
+---
+
+**Colazione** (200 kcal): Yogurt greco con frutta
+- Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci
+
+**Spuntino mattina** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
+
+**Pranzo** (380 kcal): Wrap di tacchino e verdure
+- Macros: Proteine 25g | Carb 40g | Grassi 10g
+- Ingredienti: 1 piadina integrale, 60g tacchino, lattuga, 1 cucchiaino olio
+- Preparazione: Scalda piadina. Riempi con tacchino e verdure.
+
+**Spuntino pomeriggio** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
+
+**Cena** (300 kcal): Pesce spada con insalata
+- Macros: Proteine 35g | Carb 5g | Grassi 12g
+- Ingredienti: 150g pesce spada, insalata mista, limone, 1 cucchiaino olio
+- Preparazione: Griglia pesce 3 min per lato. Servi con insalata.
+
+**Totale del giorno:** ~1600 kcal
+
+## Sunday
+---
+
+**Colazione** (250 kcal): Toast integrale con avocado
+- Ingredienti: 1 fetta pane integrale, 1/2 avocado, 1 cucchiaino olio
+
+**Spuntino mattina** (100 kcal): Frutta secca
+- Ingredienti: 10g mandorle o noci
+
+**Pranzo** (400 kcal): Pasta integrale con pomodoro e basilico
+- Macros: Proteine 12g | Carb 60g | Grassi 8g
+- Ingredienti: 70g pasta integrale, 150g pomodori, basilico, 1 cucchiaino olio
+- Preparazione: Cuoci pasta. Soffriggi pomodori 5 min. Unisci pasta e condisci con olio.
+
+**Spuntino pomeriggio** (100 kcal): Frutta secca
+- Ingredienti: 10g mandorle o noci
+
+**Cena** (400 kcal): Salmone al forno con verdure
+- Macros: Proteine 35g | Carb 15g | Grassi 25g
+- Ingredienti: 150g salmone, 200g zucchine, 1 patata piccola
+- Preparazione: Inforna salmone e verdure 20 min a 200°C.
+
+**Totale del giorno:** ~1600 kcal
+
+## Monday
+---
+
+**Colazione** (220 kcal): Porridge di avena
+- Ingredienti: 30g avena, 200ml latte, mezza mela
+
+**Spuntino mattina** (100 kcal): Parmigiano
+- Ingredienti: 20g parmigiano
+
+**Pranzo** (450 kcal): Insalata di pollo e quinoa
+- Macros: Proteine 35g | Carb 45g | Grassi 12g
+- Ingredienti: 120g petto pollo, 50g quinoa, lattuga, pomodorini, 1 cucchiaino olio
+- Preparazione: Cuoci quinoa. Griglia pollo. Mescola tutto con condimento.
+
+**Spuntino pomeriggio** (100 kcal): Parmigiano
+- Ingredienti: 20g parmigiano
+
+**Cena** (350 kcal): Petto di pollo con verdure grigliate
+- Macros: Proteine 40g | Carb 10g | Grassi 12g
+- Ingredienti: 150g pollo, zucchine, melanzane, 1 cucchiaino olio
+- Preparazione: Griglia pollo e verdure. Condisci con olio.
+
+**Totale del giorno:** ~1600 kcal
+
+## Tuesday
+---
+
+**Colazione** (200 kcal): Yogurt greco con frutta
+- Ingredienti: 150g yogurt greco, 150g frutta di stagione, 10g noci
+
+**Spuntino mattina** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
+
+**Pranzo** (420 kcal): Risotto alla zucca (senza burro)
+- Macros: Proteine 10g | Carb 70g | Grassi 6g
+- Ingredienti: 60g riso, 200g zucca, 1/2 cipolla, 1 cucchiaino olio
+- Preparazione: Soffriggi zucca. Tosta riso. Manteca con zucca e poco olio.
+
+**Spuntino pomeriggio** (80 kcal): Frutta fresca
+- Ingredienti: 1 mela o pera
+
+**Cena** (320 kcal): Frittata di spinaci
+- Macros: Proteine 20g | Carb 5g | Grassi 25g
+- Ingredienti: 2 uova, 200g spinaci, parmigiano
+- Preparazione: Soffriggi spinaci. Aggiungi uova sbattute. Cuoci fino a doratura.
+
+**Totale del giorno:** ~1600 kcal
 
 ---
-🛒 **Lista della Spesa**
 
-- 3x 1 cucchiaio olio
-- 1 limone
-- 1 patata
-- 2x 1 pomodoro
-- 1 scatoletta tonno
-- 1/2 cipolla
-- 10 parmiiano
-- 100 mozzarella
-- 100 pasta
-- 150 carne macinata
-- 150 pollo
-- 20 pesto
-- 200 ceci
-- 200 impasto
-- 200 manzo
-- 200 pesce spada
-- 200 salmone
-- 200 spinaci
-- 200 zucca
-- 200 zucchine
-- 3 spicchi alio
-- 3 uova
-- 4 uova
-- 50 parmiiano
-- 60 prosciutto cotto
-- 60 riso basmati
-- 70 quinoa
-- 2x 80 riso
-- 80 spahetti
-- cipolla
-- erba aromatica
-- erba cipollina
-- insalata
-- lattua
+## 🛒 Lista della Spesa
+
+- 12x 1 cucchiaino olio
+- 2x 1 fetta pane integrale
+- 3x 1 mela o pera
+- 2x 1 patata piccola
+- 1 piadina integrale
+- 2x 1/2 avocado
+- 2x 1/2 cipolla
+- 2x 10g mandorle o noci
+- 3x 10g noci
+- 2x 120g petto pollo
+- 3x 150g frutta di stagione
+- 150g pesce spada
+- 2x 150g pollo
+- 2x 150g pomodori
+- 2x 150g salmone
+- 3x 150g yogurt greco
+- 2x 2 uova
+- 2x 200g spinaci
+- 2x 200g zucca
+- 2x 200g zucchine
+- 2x 200ml latte
+- 2x 20g parmigiano
+- 2x 30g avena
+- 2x 50g quinoa
+- 2x 60g riso
+- 60g tacchino
+- 2x 70g pasta integrale
+- 2x basilico
+- insalata mista
+- 3x lattuga
 - limone
-- mais
-- 9x olio
-- oriano
-- 3x parmiiano
-- patate
-- peperoncino
-- pomodori
-- pomodorini
-- pomodoro
-- prezzemolo
-- rucola
-- succo limone
+- 2x melanzane
+- 2x mezza mela
+- 2x parmigiano
+- 2x pomodorini
+- 2x zucchine
