@@ -65,6 +65,12 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 .weekend { background:#fff; border-radius:14px; box-shadow:0 1px 4px rgba(60,50,30,0.07); padding:20px 24px; margin:20px 0; text-align:center; border-left:3px solid #d8a7a0; }
 .weekend h3 { font-family:Georgia,serif; color:#8a5c50; font-weight:normal; font-size:1.15rem; margin-bottom:4px; }
 .weekend p { color:#a3827a; font-size:0.9rem; }
+.weektotal { background:#fff; border-radius:14px; box-shadow:0 1px 4px rgba(60,50,30,0.07); padding:20px 26px; margin:24px 0; }
+.weektotal h3 { font-family:Georgia,serif; font-weight:normal; color:#4a4238; font-size:1.2rem; text-align:center; margin-bottom:12px; }
+.weektotal table { width:100%; border-collapse:collapse; }
+.weektotal td { padding:6px 4px; font-size:0.9rem; color:#5d5445; border-bottom:1px dotted #ece6d8; }
+.weektotal td:last-child { text-align:right; }
+.weektotal td b { color:#4a4238; }
 .updated { text-align:center; color:#b0a693; font-size:0.8rem; margin:28px 0 12px; }
 @media (max-width:480px) {
   body { padding:10px; }
@@ -83,7 +89,7 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 <span class="badge">Home workout Tue &amp; Thu &amp; Sat</span>
 <span class="badge">Fish 3&times;/week (salmon &middot; sea bass &middot; tuna)</span>
 <span class="badge">Beef 2&times;/week (sirloin &middot; strips)</span>
-<span class="badge">Water 2&ndash;3L / day</span>
+<span class="badge">Water 3L / day &middot; 6&times;500ml</span>
 <span class="badge">Gelato Sat &amp; Sun</span>
 </div>
 <details class="shop-drop">
@@ -347,6 +353,19 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 <div class="weekend">
 <h3>&#127846; Weekend Rewards</h3>
 <p>Gelato on Saturday <b>and</b> Sunday &mdash; pizza night on Saturday. Well done this week.</p>
+</div>
+<div class="weektotal">
+<h3>&#128202; Weekly Totals</h3>
+<table>
+<tr><td>Average calories / day</td><td><b>1512 kcal</b></td></tr>
+<tr><td>Average protein / day</td><td><b>69g</b></td></tr>
+<tr><td>Home workouts</td><td><b>2 &times; 1h (-700 kcal each)</b></td></tr>
+<tr><td>Weekly workout burn</td><td><b>700 kcal</b></td></tr>
+<tr><td>Gelato rewards</td><td><b>2 (Sat &amp; Sun)</b></td></tr>
+<tr><td>Fish meals</td><td><b>3 (salmon, sea bass, tuna)</b></td></tr>
+<tr><td>Beef meals</td><td><b>2 (sirloin, strips)</b></td></tr>
+</table>
+<p class="pricenote">Recap sent every Sunday evening at 10pm with the new plan.</p>
 </div>
 <p class="updated">Updated on 24 September 2026</p>
 </div>
