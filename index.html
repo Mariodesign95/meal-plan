@@ -62,14 +62,13 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
 <span class="badge">~1,500&ndash;1,650 kcal / day</span>
 <span class="badge">Water 2&ndash;3L / day</span>
 <span class="badge">Gelato Sat &amp; Sun</span>
-<span class="badge">Pizza once a week</span>
 </div>
 <details class="shop-drop">
 <summary>&#128722; Shopping List <span class="chev">&rsaquo;</span></summary>
 <div class="shopping">
 <button class="copy-btn shop-copy" onclick="copyList(this)">Copy list</button>
 <ul>
-<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g salmon</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g frozen berries</li><li>150g green beans</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g quinoa</li><li>50g small pasta</li><li>60g mozzarella</li><li>basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>lemon</li><li>mixed salad</li><li>2 &times; olives</li><li>rocket</li><li>Still water (2&ndash;3L per day)</li>
+<li>2 &times; 1 apple</li><li>2 &times; 1 banana</li><li>3 &times; 1 carrot</li><li>1 celery stick</li><li>1 clementine</li><li>1 courgette</li><li>1 croissant</li><li>1 onion</li><li>1 orange</li><li>2 &times; 1 potato</li><li>2 &times; 1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>2 &times; 1 tsp honey</li><li>5 &times; 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>4 &times; 100g Greek yogurt</li><li>100g berries</li><li>100g chicken breast</li><li>100g green beans</li><li>100g passata</li><li>2 &times; 10g almonds</li><li>120g chicken breast</li><li>120g salmon</li><li>120g turkey mince</li><li>150g cannellini beans</li><li>150g frozen berries</li><li>150g green beans</li><li>150g passata</li><li>1L chicken stock</li><li>1L vegetable stock</li><li>2 &times; 2 eggs</li><li>2 &times; 2 scoops of gelato or ice cream</li><li>30g breadcrumbs</li><li>40g feta</li><li>40g oats</li><li>50g small pasta</li><li>60g basmati rice</li><li>60g mozzarella</li><li>2 &times; basil</li><li>2 &times; cherry tomatoes</li><li>chives</li><li>half cucumber</li><li>half tomato</li><li>lemon</li><li>mixed salad</li><li>olives</li><li>Still water (2&ndash;3L per day)</li>
 </ul>
 </div>
 </details>
@@ -188,8 +187,8 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
                     <span class="meal-label">Lunch</span>
                     <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
                 </div>
-                <div class="meal-name">Quinoa bowl with feta <span class="kcal">430 kcal</span></div>
-                <div class="recipe"><span class="rlabel">Ingredients</span> 50g quinoa, 40g feta, half cucumber, cherry tomatoes, olives, 1 tsp olive oil<br><span class="rlabel">How</span> Cook quinoa 15 min, chop vegetables, mix in a bowl.</div>
+                <div class="meal-name">Feta and rice bowl <span class="kcal">430 kcal</span></div>
+                <div class="recipe"><span class="rlabel">Ingredients</span> 60g basmati rice, 40g feta, half cucumber, cherry tomatoes, 1 tsp olive oil<br><span class="rlabel">How</span> Cook rice 12 min, chop vegetables, mix in a bowl.</div>
             </div>
             <div class="meal">
                 <div class="meal-top">
@@ -205,7 +204,7 @@ h2.shop-title { text-align:center; font-family:Georgia,serif; font-size:1.5rem; 
                     <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
                 </div>
                 <div class="meal-name">Homemade thin-crust pizza night <span class="kcal">470 kcal</span></div>
-                <div class="recipe"><span class="rlabel">Ingredients</span> 1 whole wheat pizza base, 60g mozzarella, 100g passata, rocket, olives<br><span class="rlabel">How</span> Spread passata, add mozzarella, bake at 220C 10 min. Top with rocket.</div>
+                <div class="recipe"><span class="rlabel">Ingredients</span> 1 whole wheat pizza base, 60g mozzarella, 100g passata, basil, olives<br><span class="rlabel">How</span> Spread passata, add mozzarella, bake at 220C 10 min. Top with basil.</div>
             </div>
         </div>
         <div class="day">
@@ -270,7 +269,7 @@ function copyMeal(btn) {
     setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
   });
 }
-var shoppingText = '2x 1 apple\n2x 1 banana\n3x 1 carrot\n1 celery stick\n1 clementine\n1 courgette\n1 croissant\n1 onion\n1 orange\n2x 1 potato\n2x 1 slice whole wheat bread\n1 small potato\n1 tin tuna\n1 tomato\n2x 1 tsp honey\n5x 1 tsp olive oil\n1 whole wheat pizza base\n4x 100g Greek yogurt\n100g berries\n100g chicken breast\n100g green beans\n100g passata\n2x 10g almonds\n120g chicken breast\n120g salmon\n120g turkey mince\n150g cannellini beans\n150g frozen berries\n150g green beans\n150g passata\n1L chicken stock\n1L vegetable stock\n2x 2 eggs\n2x 2 scoops of gelato or ice cream\n30g breadcrumbs\n40g feta\n40g oats\n50g quinoa\n50g small pasta\n60g mozzarella\nbasil\n2x cherry tomatoes\nchives\nhalf cucumber\nhalf tomato\nlemon\nmixed salad\n2x olives\nrocket\nStill water 2-3L per day';
+var shoppingText = '2x 1 apple\n2x 1 banana\n3x 1 carrot\n1 celery stick\n1 clementine\n1 courgette\n1 croissant\n1 onion\n1 orange\n2x 1 potato\n2x 1 slice whole wheat bread\n1 small potato\n1 tin tuna\n1 tomato\n2x 1 tsp honey\n5x 1 tsp olive oil\n1 whole wheat pizza base\n4x 100g Greek yogurt\n100g berries\n100g chicken breast\n100g green beans\n100g passata\n2x 10g almonds\n120g chicken breast\n120g salmon\n120g turkey mince\n150g cannellini beans\n150g frozen berries\n150g green beans\n150g passata\n1L chicken stock\n1L vegetable stock\n2x 2 eggs\n2x 2 scoops of gelato or ice cream\n30g breadcrumbs\n40g feta\n40g oats\n50g small pasta\n60g basmati rice\n60g mozzarella\n2x basil\n2x cherry tomatoes\nchives\nhalf cucumber\nhalf tomato\nlemon\nmixed salad\nolives\nStill water 2-3L per day';
 function copyList(btn) {
   navigator.clipboard.writeText(shoppingText).then(function() {
     btn.textContent = 'Copied';
