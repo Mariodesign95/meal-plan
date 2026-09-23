@@ -1,824 +1,285 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🥗 Weekly Meal Plan</title>
-    <style>
-        :root { --primary: #10b981; --bg: #f8fafc; --card: #ffffff; --text: #1e293b; --text-light: #64748b; }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; }
-        .header { background: linear-gradient(135deg, var(--primary) 0%, #059669 100%); color: white; padding: 30px 20px; text-align: center; }
-        .header h1 { font-size: 1.8rem; margin-bottom: 10px; }
-        .header p { opacity: 0.9; }
-        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
-        .goals { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .goals h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.2rem; }
-        .goals ul { list-style: none; }
-        .goals li { padding: 8px 0; border-bottom: 1px solid #e2e8f0; }
-        .day { background: var(--card); border-radius: 12px; padding: 20px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .day h2 { color: var(--primary); margin-bottom: 15px; font-size: 1.3rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-        .meal { margin-bottom: 15px; padding: 15px; background: #f1f5f9; border-radius: 8px; position: relative; transition: background 0.2s; }
-        .meal:hover { background: #e2e8f0; }
-        .meal-title { font-weight: 600; color: var(--primary); margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; }
-        .meal-kcal { font-size: 0.85rem; color: var(--text-light); }
-        .macros { display: flex; gap: 10px; margin: 10px 0; flex-wrap: wrap; }
-        .macro { font-size: 0.8rem; color: var(--text-light); background: white; padding: 4px 8px; border-radius: 20px; }
-        .copy-btn { position: absolute; right: 10px; top: 10px; background: var(--primary); color: white; border: none; border-radius: 6px; padding: 4px 10px; font-size: 0.75rem; cursor: pointer; opacity: 0; transition: opacity 0.2s; }
-        .meal:hover .copy-btn { opacity: 1; }
-        .copy-btn:hover { background: #059669; }
-        .copy-btn.copied { background: #059669; }
-        details { margin: 10px 0; }
-        summary { cursor: pointer; font-size: 0.9rem; color: var(--primary); margin: 5px 0; }
-        .details-content { font-size: 0.9rem; color: var(--text-light); background: white; padding: 10px; border-radius: 4px; margin-top: 5px; }
-        .total { text-align: center; font-weight: 600; color: var(--primary); margin-top: 10px; }
-        .shopping { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
-        .shopping h2 { color: var(--primary); margin-bottom: 15px; }
-        .shopping ul { list-style: none; }
-        .shopping li { padding: 6px 0; border-bottom: 1px solid #e2e8f0; }
-        .store-links { margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap; }
-        .store-btn { background: var(--primary); color: white; text-decoration: none; padding: 8px 15px; border-radius: 6px; font-size: 0.9rem; display: inline-flex; align-items: center; gap: 5px; }
-        .store-btn:hover { background: #059669; }
-        .welcome { background: #f0fdf4; border: 1px solid #86efac; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; }
-        .welcome h2 { color: #16a34a; margin-bottom: 10px; }
-        .weekend-reward { background: #fff1f2; border: 1px solid #fda4af; border-radius: 12px; padding: 20px; margin: 20px 0; text-align: center; }
-        .weekend-reward h2 { color: #e11d48; margin-bottom: 10px; }
-        .last-updated { text-align: center; color: var(--text-light); font-size: 0.85rem; margin-top: 30px; }
-        @media (max-width: 600px) { .header h1 { font-size: 1.5rem; } .container { padding: 15px; } .meal { padding: 12px; } }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weekly Meal Plan</title>
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family: Georgia, 'Times New Roman', serif; background:#fdfbf7; color:#3d3832; line-height:1.7; padding:20px; }
+.container { max-width:680px; margin:0 auto; }
+h1 { text-align:center; font-size:1.9rem; color:#5a4634; margin:20px 0 5px; font-weight:normal; }
+.subtitle { text-align:center; color:#8a7d6d; margin-bottom:8px; font-style:italic; }
+.note { text-align:center; color:#8a7d6d; font-size:0.95rem; margin-bottom:30px; }
+.day { background:#fff; border:1px solid #e8e0d4; border-radius:10px; padding:22px 24px; margin-bottom:18px; }
+.day h2 { font-size:1.25rem; color:#5a4634; padding-bottom:8px; border-bottom:1px solid #eee5d8; margin-bottom:14px; font-weight:normal; letter-spacing:0.3px; }
+.meal { padding:12px 0; border-bottom:1px dashed #eee5d8; position:relative; }
+.meal:last-of-type { border-bottom:none; }
+.meal-name { font-weight:bold; font-size:1.02rem; color:#4a3f33; padding-right:70px; }
+.kcal { font-weight:normal; font-size:0.85rem; color:#8a7d6d; }
+.recipe { font-size:0.9rem; color:#6d6154; margin-top:4px; line-height:1.6; padding-right:70px; }
+.recipe b { color:#5a4634; }
+.day-total { text-align:right; font-size:0.9rem; color:#8a7d6d; font-style:italic; margin-top:10px; padding-top:8px; border-top:1px solid #eee5d8; }
+.copy-btn { position:absolute; right:0; top:10px; font-family:Georgia, serif; font-size:0.78rem; background:#f3ede2; color:#5a4634; border:1px solid #d8cbb6; border-radius:5px; padding:4px 10px; cursor:pointer; }
+.copy-btn:hover { background:#e8dfce; }
+.copy-btn.copied { background:#dde8dd; color:#3d5c3d; border-color:#b8ccb8; }
+h2.shopping-title { text-align:center; font-size:1.4rem; color:#5a4634; margin:35px 0 15px; font-weight:normal; }
+.shopping { background:#fff; border:1px solid #e8e0d4; border-radius:10px; padding:22px 24px; }
+.shopping ul { columns:2; column-gap:30px; list-style:none; }
+.shopping li { font-size:0.92rem; color:#5d5245; padding:5px 0; border-bottom:1px dotted #eee5d8; break-inside:avoid; }
+.reward { background:#f6eee9; border:1px solid #e0cdbd; border-radius:10px; padding:20px 24px; margin:25px 0; text-align:center; }
+.reward h3 { color:#7a5236; font-size:1.15rem; margin-bottom:6px; font-weight:normal; }
+.reward p { color:#8a6f57; font-size:0.95rem; }
+.updated { text-align:center; color:#a89a88; font-size:0.85rem; margin:30px 0 15px; }
+@media (max-width:520px) {
+  body { padding:12px; }
+  .shopping ul { columns:1; }
+  .day { padding:16px; }
+}
+</style>
 </head>
 <body>
-    <div class="header">
-        <h1>🥗 Weekly Meal Plan</h1>
-        <p>For healthy and sustainable weight loss</p>
-    </div>
-    <div class="container">
-        <div class="goals">
-            <h2>🎯 Goals</h2>
-            <ul>
-                <li><strong>Daily calories:</strong> ~1600 kcal</li>
-                <li><strong>Protein:</strong> 80-100g (maintain muscle)</li>
-                <li><strong>Water:</strong> 2-3L per day</li>
-                <li><strong>Note:</strong> Rich in iron & calcium, postpartum-safe</li>
-            </ul>
-        </div>
-        <div class="welcome">
-            <h2>🌟 Benvenuti nel nostro percorso!</h2>
-            <p>Forza <strong>Raffaella</strong>! Ogni giorno è un passo verso il tuo benessere.</p>
-            <p>Il supporto di <strong>Mario</strong> c'è per te.</p>
-        </div>
+<div class="container">
+<h1>Weekly Meal Plan</h1>
+<p class="subtitle">Forza Raffaella! Every day is one step closer. Mario is with you. &hearts;</p>
+<p class="note">Around 1,600&ndash;1,800 kcal per day &middot; postpartum-safe &middot; rich in iron &amp; calcium</p>
+
 
         <div class="day">
-            <h2>📅 Wednesday, 23 September</h2>
-            
+            <h2>Thursday, 24 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Greek yogurt with fruit</span>
-                    <span class="meal-kcal">200 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 15g</span>
-                    <span class="macro">🍞 Carbs 20g</span>
-                    <span class="macro">🥑 Fat 5g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g Greek yogurt, 150g seasonal fruit, 10g walnuts<br><br>
-                        <strong>Recipe:</strong> Mix yogurt with fruit and nuts.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Fruit smoothie bowl <span class="kcal">240 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 banana, 150g frozen berries, 100g Greek yogurt, 10g almonds<br><b>How:</b> Blend everything. Pour into a bowl, top with sliced almonds.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Apple or pear <span class="kcal">80 kcal</span></div>
+                <div class="recipe"><b>What:</b> 1 apple or pear</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Whole wheat pasta with tomato and basil</span>
-                    <span class="meal-kcal">400 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 12g</span>
-                    <span class="macro">🍞 Carbs 60g</span>
-                    <span class="macro">🥑 Fat 8g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 70g whole wheat pasta, 150g tomatoes, basil, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Cook pasta. Sauté tomatoes 5 min. Mix with pasta and oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Tuna and bean salad <span class="kcal">380 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 tin tuna, 150g cannellini beans, mixed salad, cherry tomatoes, 1 tsp olive oil<br><b>How:</b> Drain tuna and beans. Mix with salad and tomatoes, dress with oil and lemon.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Handful of almonds <span class="kcal">100 kcal</span></div>
+                <div class="recipe"><b>What:</b> 10g almonds or walnuts</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Baked salmon with vegetables</span>
-                    <span class="meal-kcal">400 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 35g</span>
-                    <span class="macro">🍞 Carbs 15g</span>
-                    <span class="macro">🥑 Fat 25g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g salmon, 200g zucchini, 1 small potato<br><br>
-                        <strong>Recipe:</strong> Bake salmon and vegetables for 20 min at 200°C.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Whole wheat pasta with courgette <span class="kcal">420 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 70g whole wheat pasta, 1 courgette, 20g parmesan, 1 tsp olive oil, 1 garlic clove<br><b>How:</b> Fry garlic and sliced courgette 8 min. Toss with drained pasta and parmesan.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1220 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Thursday, 24 September</h2>
-            
+            <h2>Friday, 25 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Whole wheat toast with avocado</span>
-                    <span class="meal-kcal">250 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 8g</span>
-                    <span class="macro">🍞 Carbs 25g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 slice whole wheat bread, 1/2 avocado, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Spread avocado on toast.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Scrambled eggs on toast <span class="kcal">280 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 2 eggs, 1 slice whole wheat bread, half tomato, chives<br><b>How:</b> Scramble eggs on low heat 3 min. Serve on toast with sliced tomato.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Nuts</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 10g almonds or walnuts<br><br>
-                        <strong>Recipe:</strong> Eat at room temperature.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Handful of almonds <span class="kcal">100 kcal</span></div>
+                <div class="recipe"><b>What:</b> 10g almonds or walnuts</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Chicken and quinoa salad</span>
-                    <span class="meal-kcal">450 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 35g</span>
-                    <span class="macro">🍞 Carbs 45g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 120g chicken breast, 50g quinoa, lettuce, cherry tomatoes, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Cook quinoa. Grill chicken. Mix everything with dressing.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Chicken soup with vegetables <span class="kcal">380 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 120g chicken breast, 1 carrot, 1 onion, 1 celery stick, 50g small pasta, 1L chicken stock<br><b>How:</b> Chop vegetables, boil in stock 15 min. Add chicken and pasta, cook 10 more min.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Nuts</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 10g almonds or walnuts<br><br>
-                        <strong>Recipe:</strong> Eat at room temperature.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Greek yogurt with honey <span class="kcal">120 kcal</span></div>
+                <div class="recipe"><b>What:</b> 100g Greek yogurt, 1 tsp honey</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Grilled chicken with vegetables</span>
-                    <span class="meal-kcal">350 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 40g</span>
-                    <span class="macro">🍞 Carbs 10g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g chicken breast, zucchini, aubergine, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Grill chicken and vegetables. Drizzle with oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Baked white fish with potatoes <span class="kcal">360 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 150g cod fillet, 1 potato, 100g green beans, 1 tsp olive oil, lemon<br><b>How:</b> Boil potato 20 min. Bake fish with beans at 190C for 15 min. Season with oil and lemon.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1240 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Friday, 25 September</h2>
-            
+            <h2>Saturday, 26 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Oatmeal porridge</span>
-                    <span class="meal-kcal">220 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 8g</span>
-                    <span class="macro">🍞 Carbs 35g</span>
-                    <span class="macro">🥑 Fat 4g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 30g oats, 200ml milk, half apple<br><br>
-                        <strong>Recipe:</strong> Cook oats with milk. Add diced apple.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Banana oat pancakes with berries <span class="kcal">300 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 banana, 2 eggs, 40g oats, 100g berries, Greek yogurt<br><b>How:</b> Blend banana, eggs and oats. Cook 3 pancakes 2 min per side. Top with berries and yogurt.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Parmesan cheese</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 20g parmesan<br><br>
-                        <strong>Recipe:</strong> Eat with fruit.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Greek yogurt with honey <span class="kcal">120 kcal</span></div>
+                <div class="recipe"><b>What:</b> 100g Greek yogurt, 1 tsp honey</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Pumpkin risotto</span>
-                    <span class="meal-kcal">420 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 10g</span>
-                    <span class="macro">🍞 Carbs 70g</span>
-                    <span class="macro">🥑 Fat 6g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 60g risotto rice, 200g pumpkin, 1/2 onion, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Sauté pumpkin. Toast rice. Stir in pumpkin and oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Quinoa bowl with feta <span class="kcal">450 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 60g quinoa, 50g feta, half cucumber, cherry tomatoes, olives, 1 tsp olive oil<br><b>How:</b> Cook quinoa 15 min. Chop vegetables. Mix everything in a bowl.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Parmesan cheese</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 20g parmesan<br><br>
-                        <strong>Recipe:</strong> Eat with fruit.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Apple or pear <span class="kcal">80 kcal</span></div>
+                <div class="recipe"><b>What:</b> 1 apple or pear</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Spinach frittata</span>
-                    <span class="meal-kcal">320 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 20g</span>
-                    <span class="macro">🍞 Carbs 5g</span>
-                    <span class="macro">🥑 Fat 25g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 2 eggs, 200g frozen spinach, grated cheese<br><br>
-                        <strong>Recipe:</strong> Sauté spinach. Add beaten eggs. Cook until golden.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Turkey meatballs with tomato sauce <span class="kcal">420 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 150g turkey mince, 150g passata, 30g whole wheat breadcrumbs, basil<br><b>How:</b> Mix mince with breadcrumbs, form 6 meatballs. Brown 5 min, add sauce, simmer 15 min.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1370 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Saturday, 26 September</h2>
-            
+            <h2>Sunday, 27 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Greek yogurt with fruit</span>
-                    <span class="meal-kcal">200 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 15g</span>
-                    <span class="macro">🍞 Carbs 20g</span>
-                    <span class="macro">🥑 Fat 5g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g Greek yogurt, 150g seasonal fruit, 10g walnuts<br><br>
-                        <strong>Recipe:</strong> Mix yogurt with fruit and nuts.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Weekend croissant breakfast <span class="kcal">320 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 croissant, 150g Greek yogurt, 1 orange<br><b>How:</b> Warm croissant. Serve with yogurt and fresh orange juice.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Apple or pear <span class="kcal">80 kcal</span></div>
+                <div class="recipe"><b>What:</b> 1 apple or pear</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Turkey wrap with vegetables</span>
-                    <span class="meal-kcal">380 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 25g</span>
-                    <span class="macro">🍞 Carbs 40g</span>
-                    <span class="macro">🥑 Fat 10g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 whole wheat tortilla, 60g turkey slices, lettuce, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Warm tortilla. Fill with turkey and vegetables.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Roast-style chicken lunch <span class="kcal">500 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 120g chicken breast, 1 potato, 1 carrot, 100g green beans, 1 tsp olive oil<br><b>How:</b> Roast everything at 200C for 35 min. Season with herbs and oil.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Handful of almonds <span class="kcal">100 kcal</span></div>
+                <div class="recipe"><b>What:</b> 10g almonds or walnuts</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Swordfish with salad</span>
-                    <span class="meal-kcal">300 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 35g</span>
-                    <span class="macro">🍞 Carbs 5g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g swordfish, mixed salad, lemon, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Grill fish 3 min per side. Serve with salad.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Homemade thin-crust pizza night <span class="kcal">600 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 whole wheat pizza base, 80g mozzarella, 100g passata, rocket, olives<br><b>How:</b> Spread passata on base, add mozzarella. Bake at 220C for 10 min. Top with rocket and olives.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="meal">
+                <div class="meal-name">Gelato reward: 2 scoops of gelato or ice cream <span class="kcal">200 kcal</span></div>
+                <div class="recipe"><b>What:</b> 2 scoops of your favourite gelato or ice cream</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
+            </div>
+            <div class="day-total">Day total: ~1800 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Sunday, 27 September</h2>
-            
+            <h2>Monday, 28 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Whole wheat toast with avocado</span>
-                    <span class="meal-kcal">250 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 8g</span>
-                    <span class="macro">🍞 Carbs 25g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 slice whole wheat bread, 1/2 avocado, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Spread avocado on toast.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Oatmeal porridge with apple <span class="kcal">250 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 60g oats, 200ml semi-skimmed milk, half apple, cinnamon<br><b>How:</b> Cook oats with milk 5 min. Add diced apple and cinnamon.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Nuts</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 10g almonds or walnuts<br><br>
-                        <strong>Recipe:</strong> Eat at room temperature.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Apple or pear <span class="kcal">80 kcal</span></div>
+                <div class="recipe"><b>What:</b> 1 apple or pear</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Whole wheat pasta with tomato and basil</span>
-                    <span class="meal-kcal">400 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 12g</span>
-                    <span class="macro">🍞 Carbs 60g</span>
-                    <span class="macro">🥑 Fat 8g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 70g whole wheat pasta, 150g tomatoes, basil, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Cook pasta. Sauté tomatoes 5 min. Mix with pasta and oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Chicken and quinoa salad <span class="kcal">450 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 120g chicken breast, 50g quinoa, lettuce, cherry tomatoes, 1 tsp olive oil, lemon<br><b>How:</b> Cook quinoa 15 min. Grill chicken 6 min per side. Mix with salad, dress with oil and lemon.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Nuts</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 10g almonds or walnuts<br><br>
-                        <strong>Recipe:</strong> Eat at room temperature.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Handful of almonds <span class="kcal">100 kcal</span></div>
+                <div class="recipe"><b>What:</b> 10g almonds or walnuts</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Baked salmon with vegetables</span>
-                    <span class="meal-kcal">400 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 35g</span>
-                    <span class="macro">🍞 Carbs 15g</span>
-                    <span class="macro">🥑 Fat 25g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g salmon, 200g zucchini, 1 small potato<br><br>
-                        <strong>Recipe:</strong> Bake salmon and vegetables for 20 min at 200°C.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Baked salmon with vegetables <span class="kcal">400 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 150g salmon, 200g courgette, 1 small potato<br><b>How:</b> Bake everything at 200C for 20 min.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1280 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Monday, 28 September</h2>
-            
+            <h2>Tuesday, 29 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Oatmeal porridge</span>
-                    <span class="meal-kcal">220 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 8g</span>
-                    <span class="macro">🍞 Carbs 35g</span>
-                    <span class="macro">🥑 Fat 4g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 30g oats, 200ml milk, half apple<br><br>
-                        <strong>Recipe:</strong> Cook oats with milk. Add diced apple.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Greek yogurt with banana and walnuts <span class="kcal">220 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 150g Greek yogurt, 1 banana, 10g walnuts<br><b>How:</b> Mix yogurt with sliced banana and crushed walnuts.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Parmesan cheese</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 20g parmesan<br><br>
-                        <strong>Recipe:</strong> Eat with fruit.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Handful of almonds <span class="kcal">100 kcal</span></div>
+                <div class="recipe"><b>What:</b> 10g almonds or walnuts</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Chicken and quinoa salad</span>
-                    <span class="meal-kcal">450 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 35g</span>
-                    <span class="macro">🍞 Carbs 45g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 120g chicken breast, 50g quinoa, lettuce, cherry tomatoes, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Cook quinoa. Grill chicken. Mix everything with dressing.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Whole wheat pasta with tomato and basil <span class="kcal">420 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 70g whole wheat pasta, 150g passata, basil, 1 tsp olive oil, 20g parmesan<br><b>How:</b> Boil pasta 10 min. Warm passata with basil. Toss pasta in sauce, top with parmesan.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Parmesan cheese</span>
-                    <span class="meal-kcal">100 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 20g parmesan<br><br>
-                        <strong>Recipe:</strong> Eat with fruit.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Greek yogurt with honey <span class="kcal">120 kcal</span></div>
+                <div class="recipe"><b>What:</b> 100g Greek yogurt, 1 tsp honey</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Grilled chicken with vegetables</span>
-                    <span class="meal-kcal">350 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 40g</span>
-                    <span class="macro">🍞 Carbs 10g</span>
-                    <span class="macro">🥑 Fat 12g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g chicken breast, zucchini, aubergine, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Grill chicken and vegetables. Drizzle with oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Spinach and cheese frittata <span class="kcal">350 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 2 eggs, 200g spinach, 30g grated cheese, 1 tsp olive oil<br><b>How:</b> Saute spinach 3 min. Pour beaten eggs mixed with cheese. Cook 5 min, finish 2 min under grill.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1210 kcal</div>
         </div>
-        
         <div class="day">
-            <h2>📅 Tuesday, 29 September</h2>
-            
+            <h2>Wednesday, 30 September</h2>
             <div class="meal">
-                <div class="meal-title">
-                    <span>☀️ Breakfast: Greek yogurt with fruit</span>
-                    <span class="meal-kcal">200 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 15g</span>
-                    <span class="macro">🍞 Carbs 20g</span>
-                    <span class="macro">🥑 Fat 5g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 150g Greek yogurt, 150g seasonal fruit, 10g walnuts<br><br>
-                        <strong>Recipe:</strong> Mix yogurt with fruit and nuts.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Breakfast: Whole wheat toast with avocado and egg <span class="kcal">260 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 2 slices whole wheat bread, 1 avocado, 1 egg, lemon<br><b>How:</b> Toast bread. Mash avocado with lemon, spread it. Top with poached egg 3 min.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Morning snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Morning snack: Greek yogurt with honey <span class="kcal">120 kcal</span></div>
+                <div class="recipe"><b>What:</b> 100g Greek yogurt, 1 tsp honey</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍽️ Lunch: Pumpkin risotto</span>
-                    <span class="meal-kcal">420 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 10g</span>
-                    <span class="macro">🍞 Carbs 70g</span>
-                    <span class="macro">🥑 Fat 6g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 60g risotto rice, 200g pumpkin, 1/2 onion, 1 tsp olive oil<br><br>
-                        <strong>Recipe:</strong> Sauté pumpkin. Toast rice. Stir in pumpkin and oil.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Lunch: Turkey and hummus wrap <span class="kcal">400 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 1 whole wheat tortilla, 60g turkey slices, 2 tbsp hummus, lettuce, 1 tomato<br><b>How:</b> Spread hummus on tortilla. Add turkey, lettuce, tomato. Roll up and cut in half.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🍎 Afternoon snack: Fresh fruit</span>
-                    <span class="meal-kcal">80 kcal</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 1 apple or pear<br><br>
-                        <strong>Recipe:</strong> Eat fresh.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Afternoon snack: Apple or pear <span class="kcal">80 kcal</span></div>
+                <div class="recipe"><b>What:</b> 1 apple or pear</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
             <div class="meal">
-                <div class="meal-title">
-                    <span>🌙 Dinner: Spinach frittata</span>
-                    <span class="meal-kcal">320 kcal</span>
-                </div>
-                <div class="macros">
-                    <span class="macro">🥩 Prot 20g</span>
-                    <span class="macro">🍞 Carbs 5g</span>
-                    <span class="macro">🥑 Fat 25g</span>
-                </div>
-                <details>
-                    <summary>📄 Ingredients & Recipe</summary>
-                    <div class="details-content">
-                        <strong>Ingredients:</strong> 2 eggs, 200g frozen spinach, grated cheese<br><br>
-                        <strong>Recipe:</strong> Sauté spinach. Add beaten eggs. Cook until golden.
-                    </div>
-                </details>
-                <button class="copy-btn" onclick="copyMeal(this)">📋 Copy</button>
+                <div class="meal-name">Dinner: Grilled chicken with roasted vegetables <span class="kcal">380 kcal</span></div>
+                <div class="recipe"><b>Ingredients:</b> 150g chicken breast, 1 aubergine, 1 courgette, 1 tsp olive oil<br><b>How:</b> Chop vegetables, roast at 200C for 25 min. Grill chicken 6 min per side.</div>
+                <button class="copy-btn" onclick="copyMeal(this)">Copy</button>
             </div>
-
-            <div class="total">Daily total: ~1600 kcal</div>
+            <div class="day-total">Day total: ~1240 kcal</div>
         </div>
-        
-    </div>
-    
-    <div class="container">
-        <div class="shopping">
-            <h2>🛒 Shopping List</h2>
-            <ul>
-                <li>3x 1 apple or pear</li>
-                <li>2x 1 slice whole wheat bread</li>
-                <li>2x 1 small potato</li>
-                <li>12x 1 tsp olive oil</li>
-                <li>1 whole wheat tortilla</li>
-                <li>2x 1/2 avocado</li>
-                <li>2x 1/2 onion</li>
-                <li>2x 10g almonds or walnuts</li>
-                <li>3x 10g walnuts</li>
-                <li>2x 120g chicken breast</li>
-                <li>3x 150g Greek yogurt</li>
-                <li>2x 150g chicken breast</li>
-                <li>2x 150g salmon</li>
-                <li>3x 150g seasonal fruit</li>
-                <li>150g swordfish</li>
-                <li>2x 150g tomatoes</li>
-                <li>2x 2 eggs</li>
-                <li>2x 200g frozen spinach</li>
-                <li>2x 200g pumpkin</li>
-                <li>2x 200g zucchini</li>
-                <li>2x 200ml milk</li>
-                <li>2x 20g parmesan</li>
-                <li>2x 30g oats</li>
-                <li>2x 50g quinoa</li>
-                <li>2x 60g risotto rice</li>
-                <li>60g turkey slices</li>
-                <li>2x 70g whole wheat pasta</li>
-                <li>2x aubergine</li>
-                <li>2x basil</li>
-                <li>2x cherry tomatoes</li>
-                <li>2x grated cheese</li>
-                <li>2x half apple</li>
-                <li>lemon</li>
-                <li>3x lettuce</li>
-                <li>mixed salad</li>
-                <li>2x zucchini</li>
 
-            </ul>
-            <div class="store-links">
-                <a href="https://www.lidl.co.uk/search?q=150+reek+yourt+150+seasonal+fruit+10+walnuts+1+apple+or+pear+70+whole+wheat+pasta+150+tomatoes+basil+1++olive+oil" target="_blank" class="store-btn">🛒 Lidl UK</a>
-                <a href="https://www.waitrose.com/ecom/products?q=150+reek+yourt+150+seasonal+fruit+10+walnuts+1+apple+or+pear+70+whole+wheat+pasta+150+tomatoes+basil+1++olive+oil" target="_blank" class="store-btn">🛒 Waitrose UK</a>
-            </div>
-        </div>
-        
-        <div class="weekend-reward">
-            <h2>🍦 Weekend Reward</h2>
-            <p>Una merenda speciale ti aspetta a fine settimana!</p>
-            <p>Una coccola alla settimana fa bene al corpo e allo spirito. 😊</p>
-        </div>
-        
-        <div class="last-updated">
-            Updated on 23 September 2026
-        </div>
-    </div>
-    
-    <script>
-        function copyMeal(btn) {
-            const meal = btn.parentElement;
-            const title = meal.querySelector('.meal-title span:first-child').textContent.trim();
-            const kcal = meal.querySelector('.meal-kcal').textContent.trim();
-            const details = Array.from(meal.querySelectorAll('.details-content')).map(d => d.textContent.trim()).join('\\n');
-            const text = title + ' - ' + kcal + '\\n\\n' + details;
-            navigator.clipboard.writeText(text).then(() => {
-                btn.textContent = '✅ Copied!';
-                btn.classList.add('copied');
-                setTimeout(() => {
-                    btn.textContent = '📋 Copy';
-                    btn.classList.remove('copied');
-                }, 2000);
-            }).catch(() => {
-                alert('Unable to copy. Please copy manually.');
-            });
-        }
-    </script>
+<h2 class="shopping-title">Shopping List</h2>
+<div class="shopping">
+<ul>
+<li>5x 1 apple or pear</li><li>1 aubergine</li><li>1 avocado</li><li>3x 1 banana</li><li>2x 1 carrot</li><li>1 celery stick</li><li>2x 1 courgette</li><li>1 croissant</li><li>1 egg</li><li>1 garlic clove</li><li>1 onion</li><li>1 orange</li><li>2x 1 potato</li><li>1 slice whole wheat bread</li><li>1 small potato</li><li>1 tin tuna</li><li>1 tomato</li><li>4x 1 tsp honey</li><li>9x 1 tsp olive oil</li><li>1 whole wheat pizza base</li><li>1 whole wheat tortilla</li><li>5x 100g Greek yogurt</li><li>100g berries</li><li>2x 100g green beans</li><li>100g passata</li><li>10g almonds</li><li>5x 10g almonds or walnuts</li><li>10g walnuts</li><li>3x 120g chicken breast</li><li>2x 150g Greek yogurt</li><li>150g cannellini beans</li><li>150g chicken breast</li><li>150g cod fillet</li><li>150g frozen berries</li><li>2x 150g passata</li><li>150g salmon</li><li>150g turkey mince</li><li>1L chicken stock</li><li>3x 2 eggs</li><li>2 scoops of your favourite gelato or ice cream</li><li>2 slices whole wheat bread</li><li>2 tbsp hummus</li><li>200g courgette</li><li>200g spinach</li><li>200ml semi-skimmed milk</li><li>2x 20g parmesan</li><li>30g grated cheese</li><li>30g whole wheat breadcrumbs</li><li>40g oats</li><li>50g feta</li><li>50g quinoa</li><li>50g small pasta</li><li>60g oats</li><li>60g quinoa</li><li>60g turkey slices</li><li>2x 70g whole wheat pasta</li><li>80g mozzarella</li><li>Greek yogurt</li><li>2x basil</li><li>3x cherry tomatoes</li><li>chives</li><li>cinnamon</li><li>half apple</li><li>half cucumber</li><li>half tomato</li><li>3x lemon</li><li>2x lettuce</li><li>mixed salad</li><li>2x olives</li><li>rocket</li>
+</ul>
+</div>
+
+<div class="reward">
+<h3>&#127846; Weekend Reward</h3>
+<p>Well done this week &mdash; enjoy your gelato on Sunday. You deserve it.</p>
+</div>
+
+<p class="updated">Updated on 23 September 2026</p>
+</div>
+<script>
+function copyMeal(btn) {
+  var meal = btn.parentElement;
+  var name = meal.querySelector('.meal-name').textContent.trim();
+  var recipe = meal.querySelector('.recipe');
+  var text = name + (recipe ? '\n' + recipe.textContent.trim() : '');
+  navigator.clipboard.writeText(text).then(function() {
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function() { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+  });
+}
+</script>
 </body>
 </html>
